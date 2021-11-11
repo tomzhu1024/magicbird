@@ -1,0 +1,5 @@
+/.husky
+/.idea
+/build
+/node_modules
+/utils

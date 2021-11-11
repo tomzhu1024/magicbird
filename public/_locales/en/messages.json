@@ -1,0 +1,146 @@
+{
+  "extName": {
+    "message": "MagicBird"
+  },
+  "extDesc": {
+    "message": "Webpage automation tool for NYU websites."
+  },
+  "mfaHelper": {
+    "message": "MFA Helper"
+  },
+  "mfaHelperNotSetup": {
+    "message": "Before you can enable MFA Helper, you need to set it up first."
+  },
+  "setup": {
+    "message": "Setup..."
+  },
+  "mfaHelperCount": {
+    "message": "# OF MFA COMPLETED"
+  },
+  "enrollmentHelper": {
+    "message": "Enrollment Helper"
+  },
+  "moreOptions": {
+    "message": "More Options..."
+  },
+  "exitSetup": {
+    "message": "Exit Setup"
+  },
+  "mfaSetupLoadingText": {
+    "message": "Setting up for you..."
+  },
+  "mfaSetupPageNotSupportedTitle": {
+    "message": "Something goes wrong..."
+  },
+  "mfaSetupPageNotSupportedDesc": {
+    "message": "The current page is not supported by MFA Helper setup guide. Perhaps you have clicked a different button by mistake, or there are some problems with your browser cache. To solve this, you can try to:"
+  },
+  "goBack": {
+    "message": "Click the Go Back button."
+  },
+  "clearBrowserData": {
+    "message": "Clear browser data."
+  },
+  "mfaSetupCanExit": {
+    "message": "Or, you can disable MFA Helper setup guide using the Exit Setup button."
+  },
+  "ok": {
+    "message": "OK"
+  },
+  "mfaSetupStartStepTitle": {
+    "message": "Tip"
+  },
+  "mfaSetupStartStepDesc": {
+    "message": "Click **Login** button."
+  },
+  "mfaSetupLoginStepTitle": {
+    "message": "Tip"
+  },
+  "mfaSetupLoginStepDesc": {
+    "message": "Enter your **NetID** and **Password**, then click **Login** button. *Note: this plugin only displays the overlay and has no access to your password.*"
+  },
+  "mfaSetupMfaStepTitle": {
+    "message": "Tip"
+  },
+  "mfaSetupMfaStepDesc": {
+    "message": "Complete the **Multi-Factor Authentication (MFA)** *(You might need your phone)*. After that, the guide will proceed automatically, please wait until it finishes."
+  },
+  "mfaSetupLogoutStepTitle": {
+    "message": "Tip"
+  },
+  "mfaSetupLogoutStepDesc": {
+    "message": "Click **Logout** button."
+  },
+  "mfaSetupSucceededTitle": {
+    "message": "Congratulations"
+  },
+  "mfaSetupSucceededDesc": {
+    "message": "MFA Helper has been setup successfully. You can close the page now."
+  },
+  "mfaSetuFailedTitle": {
+    "message": "Something goes wrong..."
+  },
+  "mfaSetupFailedDesc": {
+    "message": "MFA Helper cannot be setup due to some errors. Please try again later."
+  },
+  "mfaHelperLoadingText": {
+    "message": "Automating..."
+  },
+  "enrollmentIdleStatus": {
+    "message": "Disabled"
+  },
+  "enrollmentWaitingStatus": {
+    "message": "Waiting..."
+  },
+  "enrollmentWorkingStatus": {
+    "message": "Working..."
+  },
+  "enrollmentCompletedStatus": {
+    "message": "Completed"
+  },
+  "currentTime": {
+    "message": "Current time:"
+  },
+  "enrollmentTimePicker": {
+    "message": "Select an enrollment time:"
+  },
+  "enrollmentDatePickerPlaceholder": {
+    "message": "Select Date"
+  },
+  "enrollmentTimePickerPlaceholder": {
+    "message": "Select Time"
+  },
+  "start": {
+    "message": "Start"
+  },
+  "cancel": {
+    "message": "Cancel"
+  },
+  "confirm": {
+    "message": "Confirm"
+  },
+  "enrollmentCancelConfirmDesc": {
+    "message": "Are you sure you want to cancel the timer?"
+  },
+  "error": {
+    "message": "Error"
+  },
+  "enrollmentEmptyTime": {
+    "message": "Date and time cannot be empty."
+  },
+  "enrollmentInvalidTime": {
+    "message": "Date and time must be later than now."
+  },
+  "enrollmentPageNotSupported": {
+    "message": "Please click **Valid / Enroll / Edit** button, and select courses you want to enroll in."
+  },
+  "enrollmentNoSelectedCourse": {
+    "message": "Please select at least one course."
+  },
+  "enrollmentStartConfirmPrefix": {
+    "message": "Are you sure you want to enroll in the following courses:"
+  },
+  "enrollmentStartConfirmDataTime": {
+    "message": "at the following time:"
+  }
+}
