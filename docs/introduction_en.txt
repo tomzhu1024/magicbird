@@ -1,0 +1,15 @@
+Getting tired of pulling out your phone to receive DUO pushes every time you log into NYU's website? Try MagicBird now! MagicBird is a browser extension that generates the 6-digit PIN and automatically fills it in for you, thus bypassing the MFA and helping you get rid of your phone.
+
+How to use:
+- Install it from the Chrome Web Store.
+- Click on the icon in the upper right corner.
+- Click on "Setup" and follow the tutorial.
+- (Optional) Enable additional features on your needs.
+
+Features:
+- Easy to use. Only a one-time setup is required to get MFA Helper working properly. There are step-by-step tutorials to help you.
+- Fast. 6-digit PIN is automatically filled in for you, no manual operation is required for the whole process.
+- Secure. MFA's 6-digit PIN is calculated 100% within your local browser, no remote service is required.
+- Convenient. Sync between devices through your Google account. Complete the setup in one place and enjoy convenient features on all your devices.
+- Elegant. Beautiful UI and user-friendly interfaces.
+- Practical. Provides additional features such as course enrollment helper.

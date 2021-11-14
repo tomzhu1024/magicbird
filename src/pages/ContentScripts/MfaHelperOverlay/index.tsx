@@ -36,7 +36,7 @@ const Loading: React.FC<LoadingProps> = (props) => (
     <p>
       <img
         src={`chrome-extension://${chrome.runtime.id}/loading_animation.gif`}
-        style={{ height: '75%', maxWidth: '400px', maxHeight: '400px', borderRadius: '25px', opacity: '80%' }}
+        style={{ width: '75%', maxWidth: '400px', borderRadius: '25px', opacity: '80%' }}
         alt=""
         draggable={false}
       />
@@ -118,19 +118,19 @@ const App: React.FC = () => {
   };
   const showPageNotSupportedErr = () => {
     Modal.confirm({
-      title: <span style={{ fontWeight: 700 }}>{chrome.i18n.getMessage('mfaSetupPageNotSupportedTitle')}</span>,
+      title: <span style={{ fontWeight: 700 }}>{chrome.i18n.getMessage('somethingGoesWrong')}</span>,
       content: (
         <>
-          <p>{chrome.i18n.getMessage('mfaSetupPageNotSupportedDesc')}</p>
+          <p>{chrome.i18n.getMessage('mfaSetupDontSupport')}</p>
           <ul>
-            <li>{chrome.i18n.getMessage('goBack')}</li>
+            <li>{chrome.i18n.getMessage('clickBackBtn')}</li>
             <li>
               <a onClick={() => chrome.runtime.sendMessage({ from: 'mfaHelperOverlay', action: 'clearBrowserData' })}>
                 {chrome.i18n.getMessage('clearBrowserData')}
               </a>
             </li>
           </ul>
-          <p>{chrome.i18n.getMessage('mfaSetupCanExit')}</p>
+          <p>{chrome.i18n.getMessage('mayExitSetup')}</p>
         </>
       ),
       okText: chrome.i18n.getMessage('ok'),
@@ -157,8 +157,8 @@ const App: React.FC = () => {
             if (message.msg === 'showSucceeded') {
               setShowGuide(false);
               Modal.success({
-                title: chrome.i18n.getMessage('mfaSetupSucceededTitle'),
-                content: chrome.i18n.getMessage('mfaSetupSucceededDesc'),
+                title: chrome.i18n.getMessage('congratulations'),
+                content: chrome.i18n.getMessage('mfaSetupSucceeded'),
                 okText: chrome.i18n.getMessage('ok'),
               });
               return;
@@ -168,8 +168,8 @@ const App: React.FC = () => {
             if (message.msg === 'showFailed') {
               setShowGuide(false);
               Modal.error({
-                title: chrome.i18n.getMessage('mfaSetuFailedTitle'),
-                content: chrome.i18n.getMessage('mfaSetupFailedDesc'),
+                title: chrome.i18n.getMessage('somethingGoesWrong'),
+                content: chrome.i18n.getMessage('mfaSetupFailed'),
                 okText: chrome.i18n.getMessage('ok'),
               });
               return;
@@ -194,41 +194,25 @@ const App: React.FC = () => {
 
         // login page on start.nyu.edu
         if ((elements = $('#Button_Login')).length !== 0) {
-          highlightElement(
-            elements,
-            chrome.i18n.getMessage('mfaSetupStartStepTitle'),
-            chrome.i18n.getMessage('mfaSetupStartStepDesc')
-          );
+          highlightElement(elements, chrome.i18n.getMessage('tip'), chrome.i18n.getMessage('clickLogin'));
           return;
         }
 
         // username / password page on auth.nyu.edu
         if ((elements = $('#loginForm')).length !== 0) {
-          highlightElement(
-            elements,
-            chrome.i18n.getMessage('mfaSetupLoginStepTitle'),
-            chrome.i18n.getMessage('mfaSetupLoginStepDesc')
-          );
+          highlightElement(elements, chrome.i18n.getMessage('tip'), chrome.i18n.getMessage('enterNetIdPassword'));
           return;
         }
 
         // MFA page on auth.nyu.edu
         if ((elements = $('#duo_iframe')).length !== 0) {
-          highlightElement(
-            elements,
-            chrome.i18n.getMessage('mfaSetupMfaStepTitle'),
-            chrome.i18n.getMessage('mfaSetupMfaStepDesc')
-          );
+          highlightElement(elements, chrome.i18n.getMessage('tip'), chrome.i18n.getMessage('completeMfa'));
           return;
         }
 
         // control panel page on start.nyu.edu
         if ((elements = $('#LogoutButton')).length !== 0) {
-          highlightElement(
-            elements,
-            chrome.i18n.getMessage('mfaSetupLogoutStepTitle'),
-            chrome.i18n.getMessage('mfaSetupLogoutStepDesc')
-          );
+          highlightElement(elements, chrome.i18n.getMessage('tip'), chrome.i18n.getMessage('clickLogout'));
           return;
         }
 
@@ -281,7 +265,7 @@ const App: React.FC = () => {
         <Highlight
           visible={showGuide}
           isLoading={isGuideLoading}
-          loadingHint={chrome.i18n.getMessage('mfaSetupLoadingText')}
+          loadingHint={chrome.i18n.getMessage('isSettingUp')}
           {...guidePosition}
         />
       </Popover>
@@ -298,7 +282,7 @@ const App: React.FC = () => {
           pointerEvents: 'none',
         }}
       >
-        <Loading isLoading={true} loadingHint={chrome.i18n.getMessage('mfaHelperLoadingText')} />
+        <Loading isLoading={true} loadingHint={chrome.i18n.getMessage('isAutomating')} />
       </div>
     </>
   );

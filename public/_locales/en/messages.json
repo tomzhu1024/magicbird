@@ -8,13 +8,13 @@
   "mfaHelper": {
     "message": "MFA Helper"
   },
-  "mfaHelperNotSetup": {
+  "mfaHelperNeedSetup": {
     "message": "Before you can enable MFA Helper, you need to set it up first."
   },
   "setup": {
     "message": "Setup..."
   },
-  "mfaHelperCount": {
+  "numberOfMfaCompleted": {
     "message": "# OF MFA COMPLETED"
   },
   "enrollmentHelper": {
@@ -26,88 +26,76 @@
   "exitSetup": {
     "message": "Exit Setup"
   },
-  "mfaSetupLoadingText": {
+  "isSettingUp": {
     "message": "Setting up for you..."
   },
-  "mfaSetupPageNotSupportedTitle": {
+  "somethingGoesWrong": {
     "message": "Something goes wrong..."
   },
-  "mfaSetupPageNotSupportedDesc": {
+  "mfaSetupDontSupport": {
     "message": "The current page is not supported by MFA Helper setup guide. Perhaps you have clicked a different button by mistake, or there are some problems with your browser cache. To solve this, you can try to:"
   },
-  "goBack": {
+  "clickBackBtn": {
     "message": "Click the Go Back button."
   },
   "clearBrowserData": {
     "message": "Clear browser data."
   },
-  "mfaSetupCanExit": {
+  "mayExitSetup": {
     "message": "Or, you can disable MFA Helper setup guide using the Exit Setup button."
   },
   "ok": {
     "message": "OK"
   },
-  "mfaSetupStartStepTitle": {
+  "tip": {
     "message": "Tip"
   },
-  "mfaSetupStartStepDesc": {
+  "clickLogin": {
     "message": "Click **Login** button."
   },
-  "mfaSetupLoginStepTitle": {
-    "message": "Tip"
-  },
-  "mfaSetupLoginStepDesc": {
+  "enterNetIdPassword": {
     "message": "Enter your **NetID** and **Password**, then click **Login** button. *Note: this plugin only displays the overlay and has no access to your password.*"
   },
-  "mfaSetupMfaStepTitle": {
-    "message": "Tip"
-  },
-  "mfaSetupMfaStepDesc": {
+  "completeMfa": {
     "message": "Complete the **Multi-Factor Authentication (MFA)** *(You might need your phone)*. After that, the guide will proceed automatically, please wait until it finishes."
   },
-  "mfaSetupLogoutStepTitle": {
-    "message": "Tip"
-  },
-  "mfaSetupLogoutStepDesc": {
+  "clickLogout": {
     "message": "Click **Logout** button."
   },
-  "mfaSetupSucceededTitle": {
+  "congratulations": {
     "message": "Congratulations"
   },
-  "mfaSetupSucceededDesc": {
+  "mfaSetupSucceeded": {
     "message": "MFA Helper has been setup successfully. You can close the page now."
   },
-  "mfaSetuFailedTitle": {
-    "message": "Something goes wrong..."
-  },
-  "mfaSetupFailedDesc": {
+  "mfaSetupFailed": {
     "message": "MFA Helper cannot be setup due to some errors. Please try again later."
   },
-  "mfaHelperLoadingText": {
+  "isAutomating": {
     "message": "Automating..."
   },
-  "enrollmentIdleStatus": {
+  "disabled": {
     "message": "Disabled"
   },
-  "enrollmentWaitingStatus": {
+  "waiting": {
     "message": "Waiting..."
   },
-  "enrollmentWorkingStatus": {
+  "working": {
     "message": "Working..."
   },
-  "enrollmentCompletedStatus": {
+  "completed": {
     "message": "Completed"
   },
   "currentTime": {
     "message": "Current time:"
   },
-  "enrollmentTimePicker": {
+  "pickEnrollmentTime": {
     "message": "Select an enrollment time:"
   },
-  "enrollmentDatePickerPlaceholder": {
+  "selectDate": {
     "message": "Select Date"
   },
-  "enrollmentTimePickerPlaceholder": {
+  "selectTime": {
     "message": "Select Time"
   },
   "start": {
@@ -119,28 +107,49 @@
   "confirm": {
     "message": "Confirm"
   },
-  "enrollmentCancelConfirmDesc": {
+  "confirmCancelTimer": {
     "message": "Are you sure you want to cancel the timer?"
   },
   "error": {
     "message": "Error"
   },
-  "enrollmentEmptyTime": {
+  "emptyDateTime": {
     "message": "Date and time cannot be empty."
   },
-  "enrollmentInvalidTime": {
+  "invalidDateTime": {
     "message": "Date and time must be later than now."
   },
-  "enrollmentPageNotSupported": {
+  "notInCartPage": {
     "message": "Please click **Valid / Enroll / Edit** button, and select courses you want to enroll in."
   },
-  "enrollmentNoSelectedCourse": {
+  "emptyCourse": {
     "message": "Please select at least one course."
   },
-  "enrollmentStartConfirmPrefix": {
+  "confirmEnrollCourses": {
     "message": "Are you sure you want to enroll in the following courses:"
   },
-  "enrollmentStartConfirmDataTime": {
+  "confirmEnrollTime": {
     "message": "at the following time:"
+  },
+  "help": {
+    "message": "Help"
+  },
+  "instructionsForUse": {
+    "message": "Instructions For Use"
+  },
+  "openCartPage": {
+    "message": "Click **Valid / Enroll / Edit** button, go to the shopping cart page."
+  },
+  "selectCourses": {
+    "message": "Select the courses you want to enroll in."
+  },
+  "setDateTime": {
+    "message": "Set the enrollment date and time in the popover."
+  },
+  "clickStart": {
+    "message": "If everything goes well, the status indicator will become **Waiting**."
+  },
+  "onlyNeedToWait": {
+    "message": "The plugin will automatically complete the enrollment procedure. You only need to wait for the results."
   }
 }

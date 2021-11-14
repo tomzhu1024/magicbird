@@ -10,6 +10,7 @@ import {
   ClockCircleOutlined,
   ExclamationCircleOutlined,
   CheckCircleOutlined,
+  QuestionCircleOutlined,
 } from '@ant-design/icons';
 import moment, { Moment } from 'moment';
 import { resolveAsterisks } from '@/utils/resolveAsterisk';
@@ -36,10 +37,10 @@ const Helper: React.FC<{
     completed: '#87d068',
   };
   const tagText: Record<'idle' | 'waiting' | 'working' | 'completed', string> = {
-    idle: chrome.i18n.getMessage('enrollmentIdleStatus'),
-    waiting: chrome.i18n.getMessage('enrollmentWaitingStatus'),
-    working: chrome.i18n.getMessage('enrollmentWorkingStatus'),
-    completed: chrome.i18n.getMessage('enrollmentCompletedStatus'),
+    idle: chrome.i18n.getMessage('disabled'),
+    waiting: chrome.i18n.getMessage('waiting'),
+    working: chrome.i18n.getMessage('working'),
+    completed: chrome.i18n.getMessage('completed'),
   };
   let timerId: number;
   const onStartBtnClicked = () => {
@@ -47,7 +48,7 @@ const Helper: React.FC<{
     if (!date || !time) {
       Modal.error({
         title: chrome.i18n.getMessage('error'),
-        content: chrome.i18n.getMessage('enrollmentEmptyTime'),
+        content: chrome.i18n.getMessage('emptyDateTime'),
         okText: chrome.i18n.getMessage('ok'),
       });
       return;
@@ -58,7 +59,7 @@ const Helper: React.FC<{
     if (targetTime.diff(moment()) <= 0) {
       Modal.error({
         title: chrome.i18n.getMessage('error'),
-        content: chrome.i18n.getMessage('enrollmentInvalidTime'),
+        content: chrome.i18n.getMessage('invalidDateTime'),
         okText: chrome.i18n.getMessage('ok'),
       });
       return;
@@ -69,7 +70,7 @@ const Helper: React.FC<{
     if ($('a#DERIVED_REGFRM1_LINK_ADD_ENRL', iframe.contents()).length === 0) {
       Modal.error({
         title: chrome.i18n.getMessage('error'),
-        content: resolveAsterisks(chrome.i18n.getMessage('enrollmentPageNotSupported')),
+        content: resolveAsterisks(chrome.i18n.getMessage('notInCartPage')),
         okText: chrome.i18n.getMessage('ok'),
       });
       return;
@@ -86,7 +87,7 @@ const Helper: React.FC<{
     if (selectedCourses.length === 0) {
       Modal.error({
         title: chrome.i18n.getMessage('error'),
-        content: chrome.i18n.getMessage('enrollmentNoSelectedCourse'),
+        content: chrome.i18n.getMessage('emptyCourse'),
         okText: chrome.i18n.getMessage('ok'),
       });
       return;
@@ -97,7 +98,7 @@ const Helper: React.FC<{
       icon: <ExclamationCircleOutlined />,
       content: (
         <>
-          <p>{chrome.i18n.getMessage('enrollmentStartConfirmPrefix')}</p>
+          <p>{chrome.i18n.getMessage('confirmEnrollCourses')}</p>
           <ul>
             {selectedCourses.map((item, index) => (
               <li key={index} style={{ fontWeight: 700 }}>
@@ -105,14 +106,14 @@ const Helper: React.FC<{
               </li>
             ))}
           </ul>
-          <p>{chrome.i18n.getMessage('enrollmentStartConfirmDataTime')}</p>
+          <p>{chrome.i18n.getMessage('confirmEnrollTime')}</p>
           <p style={{ fontWeight: 700 }}>{targetTime.format('YYYY-MM-DD HH:mm:ss')}</p>
         </>
       ),
       okText: chrome.i18n.getMessage('ok'),
       cancelText: chrome.i18n.getMessage('cancel'),
       onOk: () => {
-        setTimeout(async () => {
+        window.setTimeout(async () => {
           setStatus('working');
           const iframe = $('#lbFrameContent');
           const simulateClick = (selector: JQuery.Selector) => {
@@ -122,6 +123,7 @@ const Helper: React.FC<{
             btn.get(0).click();
           };
           simulateClick('a#DERIVED_REGFRM1_LINK_ADD_ENRL');
+          console.log('clicked 1');
           let id: number;
           await new Promise<void>((resolve) => {
             id = window.setInterval(() => {
@@ -130,6 +132,7 @@ const Helper: React.FC<{
           });
           window.clearInterval(id);
           simulateClick('a#DERIVED_REGFRM1_SSR_PB_SUBMIT');
+          console.log('clicked 2');
           setStatus('completed');
         }, targetTime.diff(moment()));
         setStatus('waiting');
@@ -140,13 +143,28 @@ const Helper: React.FC<{
     Modal.confirm({
       title: chrome.i18n.getMessage('confirm'),
       icon: <ExclamationCircleOutlined />,
-      content: chrome.i18n.getMessage('enrollmentCancelConfirmDesc'),
+      content: chrome.i18n.getMessage('confirmCancelTimer'),
       okText: chrome.i18n.getMessage('ok'),
       cancelText: chrome.i18n.getMessage('cancel'),
       onOk: () => {
-        clearTimeout(timerId);
+        window.clearTimeout(timerId);
         setStatus('idle');
       },
+    });
+  };
+  const showHelp = () => {
+    Modal.info({
+      title: chrome.i18n.getMessage('instructionsForUse'),
+      content: (
+        <ol>
+          <li>{resolveAsterisks(chrome.i18n.getMessage('openCartPage'))}</li>
+          <li>{resolveAsterisks(chrome.i18n.getMessage('selectCourses'))}</li>
+          <li>{resolveAsterisks(chrome.i18n.getMessage('setDateTime'))}</li>
+          <li>{resolveAsterisks(chrome.i18n.getMessage('clickStart'))}</li>
+          <li>{resolveAsterisks(chrome.i18n.getMessage('onlyNeedToWait'))}</li>
+        </ol>
+      ),
+      okText: chrome.i18n.getMessage('ok'),
     });
   };
 
@@ -169,7 +187,7 @@ const Helper: React.FC<{
       <Space direction="vertical" style={{ padding: '0 0 8px 8px', width: '100%' }}>
         <span>{chrome.i18n.getMessage('currentTime')}</span>
         <span style={{ fontWeight: 600 }} ref={currentTimeRef} />
-        <span>{chrome.i18n.getMessage('enrollmentTimePicker')}</span>
+        <span>{chrome.i18n.getMessage('pickEnrollmentTime')}</span>
         <DatePicker
           size="small"
           style={{ width: '100%' }}
@@ -177,7 +195,7 @@ const Helper: React.FC<{
           value={date}
           onChange={(val) => setDate(val)}
           disabled={status !== 'idle' && status !== 'completed'}
-          placeholder={chrome.i18n.getMessage('enrollmentDatePickerPlaceholder')}
+          placeholder={chrome.i18n.getMessage('selectDate')}
         />
         <TimePicker
           size="small"
@@ -186,16 +204,19 @@ const Helper: React.FC<{
           value={time}
           onChange={(val) => setTime(val)}
           disabled={status !== 'idle' && status !== 'completed'}
-          placeholder={chrome.i18n.getMessage('enrollmentTimePickerPlaceholder')}
+          placeholder={chrome.i18n.getMessage('selectTime')}
         />
-        <div style={{ marginTop: '5px' }}>
+        <Space style={{ marginTop: '5px' }}>
           {(status === 'idle' || status === 'completed') && (
             <Button type="primary" onClick={onStartBtnClicked}>
               {chrome.i18n.getMessage('start')}
             </Button>
           )}
           {status === 'waiting' && <Button onClick={onCancelBtnClicked}>{chrome.i18n.getMessage('cancel')}</Button>}
-        </div>
+          <Button onClick={showHelp} icon={<QuestionCircleOutlined />}>
+            {chrome.i18n.getMessage('help')}
+          </Button>
+        </Space>
       </Space>
     </Space>
   );

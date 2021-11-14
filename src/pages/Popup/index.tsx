@@ -83,7 +83,7 @@ const App: React.FC = () => {
             <Card style={{ height: '85px' }}>
               {mfaNeedSetup ? (
                 <>
-                  <span className={style.miniHint}>{chrome.i18n.getMessage('mfaHelperNotSetup')}</span>
+                  <span className={style.miniHint}>{chrome.i18n.getMessage('mfaHelperNeedSetup')}</span>
                   <Button
                     type="primary"
                     icon={<CaretRightOutlined />}
@@ -99,7 +99,7 @@ const App: React.FC = () => {
                   </Button>
                 </>
               ) : (
-                <Statistic title={chrome.i18n.getMessage('mfaHelperCount')} value={mfaCount} />
+                <Statistic title={chrome.i18n.getMessage('numberOfMfaCompleted')} value={mfaCount} />
               )}
             </Card>
           </ToggleCard>
