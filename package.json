@@ -8,8 +8,8 @@
   "private": true,
   "scripts": {
     "prepare": "npx husky install",
-    "start": "npx node utils/start.js",
-    "build": "npx node utils/build.js",
+    "start": "npx cross-env NODE_OPTIONS=--openssl-legacy-provider npx node utils/start.js",
+    "build": "npx cross-env NODE_OPTIONS=--openssl-legacy-provider npx node utils/build.js",
     "build:analyzer": "npx cross-env ANALYZER=true npx node utils/build.js",
     "type-check": "npx tsc --noEmit",
     "lint": "npm run eslint && npm run stylelint",
