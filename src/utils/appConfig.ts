@@ -9,8 +9,10 @@ const AppConfigKeys = {
   enrollmentHelperEnabled: 'ENROLLMENT_HELPER_ENABLED',
 };
 
+type Key = typeof AppConfigKeys[keyof typeof AppConfigKeys];
+
 class AppConfig {
-  static get = async (key: string): Promise<unknown> => {
+  static get = async (key: Key): Promise<unknown> => {
     return new Promise<never>((resolve) => {
       chrome.storage.sync.get([key], (items) => {
         resolve(items[key]);
@@ -18,7 +20,7 @@ class AppConfig {
     });
   };
 
-  static set = async (key: string, value: unknown): Promise<void> => {
+  static set = async (key: Key, value: unknown): Promise<void> => {
     return new Promise<void>((resolve) => {
       chrome.storage.sync.set({ [key]: value }, resolve);
     });

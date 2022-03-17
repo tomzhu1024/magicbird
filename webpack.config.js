@@ -25,6 +25,7 @@ let config = {
     mfaHelperCore: path.resolve(__dirname, 'src/pages/ContentScripts/MfaHelperCore/index.ts'),
     mfaHelperOverlay: path.resolve(__dirname, 'src/pages/ContentScripts/MfaHelperOverlay/index.tsx'),
     enrollmentHelper: path.resolve(__dirname,'src/pages/ContentScripts/EnrollmentHelper/index.tsx'),
+    manualMfaSetup: path.resolve(__dirname,'src/pages/ManualMFASetup/index.tsx'),
   },
   output: {
     path: path.resolve(__dirname, 'build'),
@@ -107,6 +108,12 @@ let config = {
       template: path.resolve(__dirname, 'src/templates/default.ejs'),
       minify: !isDevelopment,
       chunks: ['options'],
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'manualMfaSetup.html',
+      template: path.resolve(__dirname, 'src/templates/default.ejs'),
+      minify: !isDevelopment,
+      chunks: ['manualMfaSetup'],
     }),
   ],
   resolve: {

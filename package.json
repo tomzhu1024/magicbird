@@ -14,12 +14,12 @@
     "type-check": "npx tsc --noEmit",
     "lint": "npm run eslint && npm run stylelint",
     "lint:fix": "npm run eslint:fix && npm run stylelint:fix",
-    "eslint": "npx eslint src/**/*.{js,jsx,ts,tsx}",
-    "eslint:fix": "npx eslint --fix src/**/*.{js,jsx,ts,tsx}",
-    "stylelint": "npx stylelint src/**/*.{css,less}",
-    "stylelint:fix": "npx stylelint --fix src/**/*.{css,less}",
-    "prettier": "npx prettier --check src/**/*.{js,jsx,ts,tsx}",
-    "prettier:fix": "npx prettier --write src/**/*.{js,jsx,ts,tsx}"
+    "eslint": "npx eslint 'src/{**/*,*}.{js,ts,jsx,tsx}'",
+    "eslint:fix": "npx eslint --fix 'src/{**/*,*}.{js,jsx,ts,tsx}'",
+    "stylelint": "npx stylelint 'src/{**/*,*}.{css,less}'",
+    "stylelint:fix": "npx stylelint --fix 'src/{**/*,*}.{css,less}'",
+    "prettier": "npx prettier --check 'src/**/*.{js,jsx,ts,tsx}'",
+    "prettier:fix": "npx prettier --write 'src/**/*.{js,jsx,ts,tsx}'"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",

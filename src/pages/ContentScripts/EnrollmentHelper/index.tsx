@@ -260,7 +260,6 @@ const App: React.FC = () => {
             filter: 'drop-shadow(0 0 3px rgba(0,0,0,45%))',
             pointerEvents: 'none',
           }}
-          alt=""
           draggable={false}
         />
       </div>

@@ -5,6 +5,7 @@
   "semi": true,
   "singleQuote": true,
   "bracketSameLine": false,
+  "endOfLine": "lf",
   "overrides": [
     {
       "files": ["*.html","*.ejs"],

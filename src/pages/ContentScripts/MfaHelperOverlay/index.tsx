@@ -37,7 +37,6 @@ const Loading: React.FC<LoadingProps> = (props) => (
       <img
         src={`chrome-extension://${chrome.runtime.id}/loading_animation.gif`}
         style={{ width: '75%', maxWidth: '400px', borderRadius: '25px', opacity: '80%' }}
-        alt=""
         draggable={false}
       />
     </p>

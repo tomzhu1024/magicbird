@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useState, useEffect, ReactNode } from 'react';
 import * as ReactDOM from 'react-dom';
 import { Button, Space, Switch, Statistic, Card } from 'antd';
-import { UnlockOutlined, ThunderboltOutlined, CaretRightOutlined } from '@ant-design/icons';
+import { UnlockOutlined, ThunderboltOutlined, CaretRightOutlined, SettingOutlined } from '@ant-design/icons';
 import { useDidMount } from '@/utils/useDidMount';
 import { AppConfig, AppConfigKeys } from '@/utils/appConfig';
 import style from './index.module.less';
@@ -22,7 +22,7 @@ const ToggleCard: React.FC<ToggleCardProps> = (props) => (
       <div className={style.flexBox}>
         <Space>
           {props.icon}
-          <span className={style.boldText}>{props.title}</span>
+          <span>{props.title}</span>
         </Space>
         <Switch disabled={props.disabled} checked={props.value} onChange={props.onChanged} />
       </div>
@@ -68,7 +68,7 @@ const App: React.FC = () => {
   return (
     <div className={style.app}>
       <div className={style.header}>
-        <img className={style.icon} src={appLogo} alt="" draggable={false} />
+        <img className={style.icon} src={appLogo} draggable={false} />
         <span className={style.text}>{chrome.i18n.getMessage('extName')}</span>
       </div>
       <div className={style.cardsContainer}>
@@ -80,7 +80,7 @@ const App: React.FC = () => {
             value={mfaHelperEnabled}
             onChanged={(value) => setMfaHelperEnabled(value)}
           >
-            <Card style={{ height: '85px' }}>
+            <Card bodyStyle={{ paddingBottom: 0 }}>
               {mfaNeedSetup ? (
                 <>
                   <span className={style.miniHint}>{chrome.i18n.getMessage('mfaHelperNeedSetup')}</span>
@@ -96,6 +96,20 @@ const App: React.FC = () => {
                     }}
                   >
                     {chrome.i18n.getMessage('setup')}
+                  </Button>
+                  <Button
+                    type="link"
+                    block
+                    style={{
+                      fontSize: '12px',
+                    }}
+                    onClick={() => {
+                      chrome.tabs.create({
+                        url: 'manualMfaSetup.html',
+                      });
+                    }}
+                  >
+                    Setup with E-Mail...
                   </Button>
                 </>
               ) : (
